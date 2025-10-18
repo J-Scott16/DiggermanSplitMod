@@ -23,10 +23,10 @@ This repository contains tools for speedrunning **Diggerman**, including a LiveS
 
 ### LiveSplit Auto Splitter
 
-1. Open LiveSplit.  (https://livesplit.org/)
+1. Open [LiveSplit](https://livesplit.org/)
 2. Add a **Scriptable Auto Splitter** and select `Diggerman.asl`.  
-3. Open the Diggerman_Splits.lss as the split
-4. Open the Diggerman_Layout.lsl as the layout for LiveSplit
+3. Open the `Diggerman_Splits.lss` as the split
+4. Open the `Diggerman_Layout.lsl` as the layout for LiveSplit
 
 ## Usage
 
