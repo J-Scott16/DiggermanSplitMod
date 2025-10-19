@@ -4,20 +4,21 @@ state("Diggerman") {
     float gametime2 : "mono.dll", 0x001F9EE4, 0xF0, 0x124, 0x3C, 0x10, 0xAC;
     float gametime3 : "mono.dll", 0x002030F4, 0xF0, 0x124, 0x3C, 0x10, 0xAC;
     float gametime4 : "mono.dll", 0x0020A900, 0xF0, 0x124, 0x3C, 0x10, 0xAC;
-    int score : "mono.dll", 0x001F50AC, 0x334, 0xC, 0x1C, 0x18;
+    int progress : "mono.dll", 0x001F50AC, 0x334, 0xC, 0x1C, 0x18;
 }
 
 startup {
-    vars.lastSplitScore = 0;
+    vars.lastSplitProgress = 0;
     print("ASL: connected!");
 }
 
 
 split {
-    if ((current.score == 99 || current.score == 299 || current.score == 599 || current.score == 699 || current.score == 799 || current.score == 899 || current.score == 999 || current.score == 1099 || current.score == 1199) 
-        && current.score > vars.lastSplitScore) 
+  print("ASL: " + current.progress);
+    if ((current.progress == 4 || current.progress == 7 || current.progress == 10 || current.progress == 11 || current.progress == 12 || current.progress == 13 || current.progress == 14 || current.progress == 15 || current.progress == 16 || current.progress == 17) 
+        && current.progress > vars.lastSplitProgress) 
     {
-        vars.lastSplitScore = current.score;
+        vars.lastSplitProgress = current.progress;
         return true;
     }//cant find last split after boss dies :(
     return false;
@@ -37,7 +38,7 @@ start {
         || (current.gametime2 > 0 && old.gametime2 == 0)
         || (current.gametime3 > 0 && old.gametime3 == 0)
         || (current.gametime4 > 0 && old.gametime4 == 0)) {
-	vars.lastSplitScore = 0;
+	vars.lastSplitProgress = 0;
         return true;
     }
     return false;
